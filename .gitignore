@@ -1,0 +1,25 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Large files
+project.zip
+*.zip
+
+# Data (too large for GitHub - ~9.7GB)
+data/
+
+# Model checkpoints (uncomment if you want to track them)
+# *.pt
+
+# IDE
+.vscode/
+
+# Output / logs / trash
+logs/
+output/
+trash/
+
+# Binary tools
+tools/mmseqs/bin/
