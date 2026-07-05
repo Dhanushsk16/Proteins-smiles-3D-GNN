@@ -304,6 +304,13 @@ def get_encoder(encoder_name):
         return DimeNetPlusPlusEncoder()
     elif name == "mace":
         return MACEEncoder()
+    elif name == "smiles" or name.startswith("smiles_"):
+        # SMILES Transformer branch (Phase 2). Lazy-imported so the 3D GNN path
+        # does not require torchtune/transformers. Select the size preset via the
+        # config string, e.g. "smiles" (small), "smiles_base", "smiles_large".
+        from smiles_encoder import get_smiles_encoder
+        size = name.split("_", 1)[1] if "_" in name else "small"
+        return get_smiles_encoder(size)
     else:
         raise ValueError(f"Unknown encoder type: {encoder_name}")
 
